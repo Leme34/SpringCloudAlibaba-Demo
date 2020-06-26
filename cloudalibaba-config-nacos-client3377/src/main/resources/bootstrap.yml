@@ -1,0 +1,21 @@
+server:
+  port: 3377
+
+spring:
+  application:
+    name: nacos-config-client
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.11.101:8848 #Nacos服务注册中心地址
+      config:
+        server-addr: 192.168.11.101:8848 #Nacos作为配置中心地址
+        file-extension: yaml #指定yaml格式配置
+#        group: TEST_GROUP   #默认是DEFAULT_GROUP
+#        namespace: 6fecc7ae-f02f-49ef-ace7-80d2f671df77  #命名空间ID，默认命名空间是public无需配置
+
+# Nacos配置列表的dataId的完整格式，详见Nacos官方文档
+#${prefix}-${spring.profile.active}.${file-extension}
+# 因此以上配置的默认值如下
+# ${spring.application.name}-${spring.profile.active}.${file-extension}
+# 最终文件名是：nacos-config-client-dev.yaml
